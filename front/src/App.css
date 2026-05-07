@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 90vw;
+    height: auto;
+    background-color: #0F0F0F;
+    
+    display: flex;
+    
+}
