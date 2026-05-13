@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react'
 import styles from './Home.module.scss'
 import { Photo } from '../../Photo';
+import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -13,7 +14,13 @@ export default function Home() {
     <>
       <main>
         <section className={styles.heroSection}>
-            <div>
+            <div className={styles.divHeroSection}>
+                <div className={styles.firsteHeroSection}>
+                    <h1><span className={styles.spanH1_1firsteHeroSection}>DIGITAL SOLUTIONS<img src={Photo.Start} alt=""/></span><span className={styles.spanH1_2firsteHeroSection}>THAT DRIVE SUCCESS</span></h1>
+                </div>
+                <div className={styles.secondHeroSection}>
+                    <p>At NexGen, we believe in the transformative power of digital solutions. Our team of experts is dedicated to helping <br/> businesses like yours thrive in the fast-paced digital landscape.</p>
+                </div>
                 <div className={styles.container}>
                     <Swiper
                         modules={[Autoplay]}
@@ -82,10 +89,36 @@ export default function Home() {
                     </Swiper>
                 </div>
             </div>
-            <div>
-
+            <div className={styles.divHeroSection}>
+                <img src={Photo.ContainerHS} alt=""/>
             </div>
-            <div>
+            <div className={styles.divHeroSection}>
+                <div>
+                    <p>CLIENTS</p>
+                    <h1>200+</h1>
+                </div>
+                <div>
+                    <p>PROJECTS</p>
+                    <h1>280+</h1>
+                </div>
+                <div>
+                    <p>HAPPY CLIENTS</p>
+                    <h1>100%</h1>
+                </div>
+                <div>
+                    <p>FOLLOWER</p>
+                    <h1>430K</h1>
+                </div>
+                <div>
+                    <p>Years Of Experience</p>
+                    <h1>10+</h1>
+                </div>
+                <Link to="/Home">
+                    <div>
+                        <img src={Photo.KnowMore} alt=""/>
+                        <p>KNOW MORE</p>
+                    </div>
+                </Link>
 
             </div>
         </section>
