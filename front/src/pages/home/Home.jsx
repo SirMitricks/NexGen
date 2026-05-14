@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+
 import styles from './Home.module.scss'
 import { Photo } from '../../Photo';
 import { Link } from 'react-router-dom'
@@ -8,8 +8,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 export default function Home() {
+    const [reasons, setReasons] = useState([]);
 
-
+    useEffect(() => {
+        fetch('http://localhost:3000/api/reasons')
+            .then(res => res.json())
+            .then(data => setReasons(data))
+            .catch(err => console.error('Ошибка загрузки reasons:', err));
+    }, []);
   return (
     <>
       <main>
@@ -27,7 +33,7 @@ export default function Home() {
                         slidesPerView="auto"
                         spaceBetween={0}
                         loop={true}
-                        speed={3800}
+                        speed={3000}
                         autoplay={{
                             delay: 0,
                             disableOnInteraction: false,
@@ -122,6 +128,23 @@ export default function Home() {
 
             </div>
         </section>
+        <section className={styles.reasonsSection}>
+                    <h2 className={styles.reasonsTitle}>
+                        REASONS TO CHOOSE NEXGEN FOR YOUR DIGITAL JOURNEY
+                    </h2>
+
+                    <div className={styles.reasonsGrid}>
+                        {reasons.map(item => (
+                            <div key={item.id} className={styles.reasonCard}>
+                                <h3>{item.title}</h3>
+                                <p>{item.description}</p>
+                                <a href="#" className={styles.learnMore}>
+                                    Learn More ↗
+                                </a>
+                            </div>
+                        ))}
+                    </div>
+                </section>
       </main>
     </>
   )
