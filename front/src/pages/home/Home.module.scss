@@ -175,35 +175,62 @@ main{
   }
   .reasonsSection {
     width: 100%;
-    padding: 80px 0;
-    background-color: #0F0F0F;
+    margin: 80px 0;
+    // background-color: #0F0F0F;
+    border: 2px solid #1A1A1A;
+    border-radius: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .reasonsTitle {
+      width: 98%;
+      height: 14.44vh;
       text-align: center;
       font-size: 3rem;
       font-weight: 700;
       color: #F9EFEC; 
-      margin-bottom: 50px;
       text-transform: uppercase;
+      box-sizing: border-box;
+      margin: 20px 20px 20px 20px;
+      background-color: #1A1A1A;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      border-radius: 1.6rem;
+      span{
+        color: transparent;
+      }
     }
     .reasonsGrid {
-      width: 94.8%;
-      margin: 0 auto;
+      width: 98%;
+      // margin: 0 auto;
+      box-sizing: border-box;
+      padding: 0 0 20px 0;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 25px;
       .reasonCard {
+        width: 22.4vw;
+        height: 36.85vh;          
         background-color: #1A1A1A;
         border-radius: 20px;
-        padding: 35px;
+        // padding: 35px;
         color: #F9EFEC;
-        .reasonCard h3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        h3 {
+          width: 85%;
           font-size: 1.7rem;
           margin-bottom: 20px;
         }
-        .reasonCard p {
+        p {
+          width: 85%;
           color: #B3B3B2;
           line-height: 1.5;
           margin-bottom: 25px;
+          padding: 0 20px;
         }
         .learnMore {
           color: #CE7D63;

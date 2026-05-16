@@ -129,22 +129,21 @@ export default function Home() {
             </div>
         </section>
         <section className={styles.reasonsSection}>
-                    <h2 className={styles.reasonsTitle}>
-                        REASONS TO CHOOSE NEXGEN FOR YOUR DIGITAL JOURNEY
-                    </h2>
-
-                    <div className={styles.reasonsGrid}>
-                        {reasons.map(item => (
-                            <div key={item.id} className={styles.reasonCard}>
-                                <h3>{item.title}</h3>
-                                <p>{item.description}</p>
-                                <a href="#" className={styles.learnMore}>
-                                    Learn More ↗
-                                </a>
-                            </div>
-                        ))}
-                    </div>
-                </section>
+                <h2 className={styles.reasonsTitle}>
+                    <span>--------</span>REASONS TO CHOOSE NEXGEN FOR YOUR DIGITAL JOURNEY
+                </h2>
+                <div className={styles.reasonsGrid}>
+                    {reasons.map(item => (
+                        <div key={item.id} className={styles.reasonCard}>
+                            <h3>{item.title}</h3>
+                            <p>{item.description}</p>
+                            <a href="#" className={styles.learnMore}>
+                                Learn More ↗
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            </section>
       </main>
     </>
   )
