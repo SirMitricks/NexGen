@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS reasons (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    learn_more_url VARCHAR(255) DEFAULT '#'
+);
+
+INSERT INTO reasons (title, description) VALUES
+('EXPERTISE IN CUTTING-EDGE TECHNOLOGIES', 'NexGen ensures your projects are powered by state-of-the-art technologies, guaranteeing innovation and future-proof solutions.'),
+('PROVEN TRACK RECORD OF SUCCESS', 'NexGen demonstrates a consistent ability to meet and exceed client expectations, providing reliable and effective web solutions tailored to diverse needs.'),
+('CLIENT-CENTRIC APPROACH', 'At NexGen, we prioritize understanding our clients'' unique requirements, fostering transparent communication throughout the development process.'),
+('DEDICATED TEAM OF PROFESSIONALS', 'Our professionals bring a wealth of expertise to the table, ensuring the delivery of top-notch, scalable, and secure web solutions for your business.')
+ON CONFLICT DO NOTHING;
