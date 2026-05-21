@@ -2,12 +2,29 @@ CREATE TABLE IF NOT EXISTS reasons (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
-    learn_more_url VARCHAR(255) DEFAULT '#'
+    learn_more_url VARCHAR(255) DEFAULT '/Home'
 );
 
-INSERT INTO reasons (title, description) VALUES
+create table if not exists ourServices (
+	id serial primary key,
+	img_url VARCHAR(255) DEFAULT '#', 
+	title varchar(255) not null,
+	description text not null,
+	book_a_call VARCHAR(255) DEFAULT '/Home',
+	price VARCHAR(255) not null
+);
+
+INSERT into reasons (title, description)  VALUES
 ('EXPERTISE IN CUTTING-EDGE TECHNOLOGIES', 'NexGen ensures your projects are powered by state-of-the-art technologies, guaranteeing innovation and future-proof solutions.'),
 ('PROVEN TRACK RECORD OF SUCCESS', 'NexGen demonstrates a consistent ability to meet and exceed client expectations, providing reliable and effective web solutions tailored to diverse needs.'),
 ('CLIENT-CENTRIC APPROACH', 'At NexGen, we prioritize understanding our clients'' unique requirements, fostering transparent communication throughout the development process.'),
 ('DEDICATED TEAM OF PROFESSIONALS', 'Our professionals bring a wealth of expertise to the table, ensuring the delivery of top-notch, scalable, and secure web solutions for your business.')
 ON CONFLICT DO NOTHING;
+
+insert into ourServices (img_url, title, description, price) values
+('WebDesign', 'Web Design', 'Our Web Design service is all about creating visually stunning and user-friendly websites that leave a lasting.', '$1,500'),
+('MobileAppDevelopment', 'Mobile App Development', 'With our Mobile App Development service, we harness the power of mobile technology to create cutting-edge applications that engage your customers on-the-go.', '$2,500'),
+('WebDevelopmet', 'Web Development', 'Our Web Development service is focused on turning your website into a powerful digital asset. We utilize the latest technologies and industry best practices to build websites.', '$1,800'),
+('DigitalMarketing', 'Digital Marketing', 'In the digital age, marketing is a critical aspect of your business`s success. Our Digital Marketing service employs data-driven strategies to enhance your brand`s visibility', '$1,200')
+ON CONFLICT DO NOTHING;
+

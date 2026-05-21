@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import styles from './Home.module.scss'
+import styles from './homeAssets/Home.module.scss'
 import { Photo } from '../../Photo';
+import { HomeImage } from './homeAssets/HomeImage';
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -9,6 +10,7 @@ import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 export default function Home() {
     const [reasons, setReasons] = useState([]);
+    const [ourServices, setOurServices] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:3000/api/reasons')
@@ -16,13 +18,20 @@ export default function Home() {
             .then(data => setReasons(data))
             .catch(err => console.error('Ошибка загрузки reasons:', err));
     }, []);
+    useEffect(() => {
+        fetch('http://localhost:3000/api/ourServices')
+            .then(res => res.json())
+            .then(data => setOurServices(data))
+            .catch(err => console.error('Ошибка загрузки reasons:', err))
+    }, [])
+    
   return (
     <>
       <main>
         <section className={styles.heroSection}>
             <div className={styles.divHeroSection}>
                 <div className={styles.firsteHeroSection}>
-                    <h1><span className={styles.spanH1_1firsteHeroSection}>DIGITAL SOLUTIONS<img src={Photo.Start} alt=""/></span><span className={styles.spanH1_2firsteHeroSection}>THAT DRIVE SUCCESS</span></h1>
+                    <h1><span className={styles.spanH1_1firsteHeroSection}>DIGITAL SOLUTIONS<img src={HomeImage.Start} alt=""/></span><span className={styles.spanH1_2firsteHeroSection}>THAT DRIVE SUCCESS</span></h1>
                 </div>
                 <div className={styles.secondHeroSection}>
                     <p>At NexGen, we believe in the transformative power of digital solutions. Our team of experts is dedicated to helping <br/> businesses like yours thrive in the fast-paced digital landscape.</p>
@@ -96,7 +105,7 @@ export default function Home() {
                 </div>
             </div>
             <div className={styles.divHeroSection}>
-                <img src={Photo.ContainerHS} alt=""/>
+                <img src={HomeImage.ContainerHS} alt=""/>
             </div>
             <div className={styles.divHeroSection}>
                 <div>
@@ -121,7 +130,7 @@ export default function Home() {
                 </div>
                 <Link to="/Home">
                     <div>
-                        <img src={Photo.KnowMore} alt=""/>
+                        <img src={HomeImage.KnowMore} alt=""/>
                         <p>KNOW MORE</p>
                     </div>
                 </Link>
@@ -129,21 +138,44 @@ export default function Home() {
             </div>
         </section>
         <section className={styles.reasonsSection}>
-                <h2 className={styles.reasonsTitle}>
-                    <span>--------</span>REASONS TO CHOOSE NEXGEN FOR YOUR DIGITAL JOURNEY
-                </h2>
-                <div className={styles.reasonsGrid}>
-                    {reasons.map(item => (
-                        <div key={item.id} className={styles.reasonCard}>
+            <h2 className={styles.reasonsTitle}>
+                <span>--------</span>REASONS TO CHOOSE NEXGEN FOR YOUR DIGITAL JOURNEY
+            </h2>
+            <div className={styles.reasonsGrid}>
+                {reasons.map(item => (
+                    <div key={item.id} className={styles.reasonCard}>
+                        <div className={styles.containerReason}>
                             <h3>{item.title}</h3>
                             <p>{item.description}</p>
-                            <a href="#" className={styles.learnMore}>
-                                Learn More ↗
-                            </a>
                         </div>
-                    ))}
-                </div>
-            </section>
+                        <Link to={item.learn_more_url}  className={styles.learnMore}>
+                           <div><img src={HomeImage.LearnMore} alt="" /></div> Learn More 
+                        </Link>
+                     </div>
+                ))}
+            </div>
+        </section>
+        <section className={styles.ourServicesSection}>
+            <h2>
+                <span>--------</span>Our Services
+            </h2>
+            <div className={styles.ourServicesGrid}>
+                {ourServices.map(item => (
+                    <div key={item.id} className={styles.ourServicesIndent}>
+                        <div className={styles.ourServicesCard}>
+                            <div className={styles.ourServicesTitle}>
+                                <p><img src={HomeImage[item.img_url]} alt="" />{item.title}</p>
+                                <Link to={`${item.book_a_call}`}>BOOK A CALL</Link>
+                            </div>
+                            <div className={styles.ourServicesDescription}>
+                                <p>{item.description}</p>
+                                <p>STARTS FROM {item.price}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>   
       </main>
     </>
   )

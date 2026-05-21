@@ -37,6 +37,16 @@ app.get('/api/reasons', async (req, res) => {
     }
 });
 
+app.get('/api/ourServices', async (req, res) => {
+    try{
+        const result = await pool.query('SELECT * FROM ourservices ORDER BY ID');
+        res.json(result.rows);
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({error: 'Ошибка сервера' })
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
