@@ -139,7 +139,7 @@ export default function Home() {
         </section>
         <section className={styles.reasonsSection}>
             <h2 className={styles.reasonsTitle}>
-                <span>--------</span>REASONS TO CHOOSE NEXGEN FOR YOUR DIGITAL JOURNEY
+                <span>---</span>REASONS TO CHOOSE NEXGEN FOR YOUR DIGITAL JOURNEY
             </h2>
             <div className={styles.reasonsGrid}>
                 {reasons.map(item => (
@@ -157,7 +157,7 @@ export default function Home() {
         </section>
         <section className={styles.ourServicesSection}>
             <h2>
-                <span>--------</span>Our Services
+                <span>---</span>Our Services
             </h2>
             <div className={styles.ourServicesGrid}>
                 {ourServices.map(item => (
@@ -165,17 +165,42 @@ export default function Home() {
                         <div className={styles.ourServicesCard}>
                             <div className={styles.ourServicesTitle}>
                                 <p><img src={HomeImage[item.img_url]} alt="" />{item.title}</p>
-                                <Link to={`${item.book_a_call}`}>BOOK A CALL</Link>
+                                <Link to={`${item.book_a_call}`}> <div><img src={HomeImage.LearnMore} alt="" /></div> BOOK A CALL</Link>
                             </div>
                             <div className={styles.ourServicesDescription}>
-                                <p>{item.description}</p>
-                                <p>STARTS FROM {item.price}</p>
+                                <p className={styles.descriptionOurServicesDescription}>{item.description}</p>
+                                <p className={styles.priceOurServicesDescription}>STARTS FROM {item.price}</p>
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
         </section>   
+        <section className={styles.ourWorks}>
+            <div className={styles.ourWorksTitle}>
+                <h2>
+                    Our Works 
+                </h2>
+                <Link to="/Home"><div><img src={HomeImage.LearnMore} alt="" /></div>ALL Works</Link>
+            </div>
+            <div className={styles.ourWorksContainerGrid}>
+                <div className={styles.ourWorksGrid}>
+                    <div className={styles.ourWorksDescription}>
+
+                    </div>
+                    <img className={styles.ourWorksImg} src="" alt="" />
+                    <div className={styles.ourWorksTechnologiesUsed}>
+
+                    </div>
+                    <div className={styles.ourWorksTeamMembers}>
+
+                    </div>
+                    <div className={styles.ourWorksBookACall}>
+
+                    </div>
+                </div>
+            </div>
+        </section>    
       </main>
     </>
   )

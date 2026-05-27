@@ -186,7 +186,7 @@ main{
       width: 98%;
       height: 14.44vh;
       text-align: center;
-      font-size: 3rem;
+      font-size: 4.8rem;
       font-weight: 700;
       color: #F9EFEC; 
       text-transform: uppercase;
@@ -285,7 +285,7 @@ main{
       width: 98%;
       height: 14.44vh;
       text-align: center;
-      font-size: 3rem;
+      font-size: 4.8rem;
       font-weight: 700;
       color: #F9EFEC; 
       text-transform: uppercase;
@@ -325,20 +325,162 @@ main{
           height: 59.49%;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: start;
           align-items: center;
           .ourServicesTitle{
             width: 100%;
             height: 28.09%;
             display: flex;
+            text-transform: uppercase;
             justify-content: space-between;
-            img{
-              width: 66px;
-              height: 66px;
+            align-items: center;
+            padding-bottom: 50px;
+            p{
+              width: 72.92%;
+              height: auto;
+              display: flex;
+              align-items: center;
+              font-family: "Roboto Flex", sans-serif;
+              font-size: 3rem;
+              font-weight: 700;
+              img{
+                width: 66px;
+                height: 66px;
+                padding-right: 1.4rem;
+              }
+            }
+            a{
+              width: 27.08%;
+              height: auto;
+              text-decoration: none;
+              color: #B3B3B2;
+              font-size: 2rem;
+              font-family: "Roboto Flex", sans-serif;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              div{
+                width: 52px;
+                height: 52px;
+                background-color: #1F1F1F;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100px;
+                border: 1px solid #262626;
+                img{
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+          }
+          .ourServicesDescription{
+            width: 100%;
+            height: 16.53%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            .descriptionOurServicesDescription{
+              width: 100%;
+              height: auto;
+              display: flex;
+              text-align: start;
+              font-size: 1.8rem;
+              font-family: "Roboto Flex", sans-serif;
+              color: #B3B3B2;
+              padding-bottom: 20px;
+            }
+            .priceOurServicesDescription{
+              width: 100%;
+              height: auto;
+              display: flex;
+              justify-content: end;
+              font-size: 3rem;
+              font-family: "Roboto Flex", sans-serif;
+              color: #F9EFEC;
             }
           }
         }
       }
+    }
+  }
+  .ourWorks{
+    width: 100%;
+    height: 105.56vh;
+    margin: 0 0 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .ourWorksTitle{
+      width: 100%;
+      height: 14.44vh;
+      text-align: center;
+      
+      font-weight: 700;
+      color: #F9EFEC; 
+      text-transform: uppercase;
+      box-sizing: border-box;
+      margin: 20px 20px 20px 20px;
+      background-color: #1A1A1A;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 1.6rem;
+      
+      h2{
+        font-size: 4.8rem;
+        font-family: "Roboto Flex", sans-serif;
+        padding-left: 5rem;
+        span{
+          color: transparent;
+          
+        }
       }
+      a{
+        width: 11.29%;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        color: #B3B3B2;
+        font-size: 2rem;
+        font-family: "Roboto Flex", sans-serif;
+        padding-right: 5rem;
+        div{
+          width: 68px;
+          height: 68px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 100px;
+          border: 1px solid #262626;
+        }
+      }
+    }
+    .ourWorksContainerGrid{
+      width: 100%;
+      height: 88.15vh;
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: 48.95% 48.95%;
+      justify-content: center;
+      align-items: center;
+      background-color: #676665;
+      gap: 20px;
+      .ourWorksGrid{
+        background-color: #262626;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 48.28% 19.31% 13.52%;
+        grid-template-areas:
+        "block1 block2 block3"
+        "block1 block2 block4"
+        "block1 block2 block5"; 
+      }
+    }
   }
 }
