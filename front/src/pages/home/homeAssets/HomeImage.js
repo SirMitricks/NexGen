@@ -6,7 +6,11 @@ import WebDesign from './image/WebDesign.svg';
 import MobileAppDevelopment from './image/MobileAppDevelopment.svg';
 import WebDevelopmet from './image/WebDevelopment.svg';
 import DigitalMarketing from './image/DigitalMarketing.svg'; 
-
+import ZenithFitnessApp from './image/ZenithFitnessApp.svg';
+import AAuraEcommerce from './image/A-AuraEcommerce.svg';
+import ZenithFitnessAppBig from './image/ZenithFitnessAppBig.png';
+import AAuraEcommerceBig from './image/AAuraEcommerceBig.png';
+import ImagesContainer from './image/ImagesContainer.png';
 
 export const HomeImage = {
     Start: Start,
@@ -17,5 +21,9 @@ export const HomeImage = {
     MobileAppDevelopment: MobileAppDevelopment,
     WebDevelopmet: WebDevelopmet,
     DigitalMarketing: DigitalMarketing,
-
+    ZenithFitnessApp: ZenithFitnessApp,
+    AAuraEcommerce: AAuraEcommerce,
+    ZenithFitnessAppBig: ZenithFitnessAppBig,
+    AAuraEcommerceBig: AAuraEcommerceBig,
+    ImagesContainer: ImagesContainer,
 }

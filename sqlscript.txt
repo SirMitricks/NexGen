@@ -27,6 +27,16 @@ create table if not exists ourWorks (
 	book_a_call varchar(255) DEFAULT '/Home'
 );
 
+create table if not exists testimonials (
+    id serial primary key,
+    title varchar(255) not null,
+    description text not null,
+    ava_img varchar(255) DEFAULT '#',
+    name varchar(255) not null,
+    prof varchar(255) not null,
+    learn_more_url varchar(255) DEFAULT '/Home'
+)
+
 INSERT into reasons (title, description)  VALUES
 ('EXPERTISE IN CUTTING-EDGE TECHNOLOGIES', 'NexGen ensures your projects are powered by state-of-the-art technologies, guaranteeing innovation and future-proof solutions.'),
 ('PROVEN TRACK RECORD OF SUCCESS', 'NexGen demonstrates a consistent ability to meet and exceed client expectations, providing reliable and effective web solutions tailored to diverse needs.'),
@@ -43,5 +53,12 @@ ON CONFLICT DO NOTHING;
 
 insert into ourWorks (img_title, title, category, time_taken, description, img_url, technologies) values
 ('ZenithFitnessApp', 'Zenith Fitness App', 'Mobile App Development', '6 months', 'An all-in-one health and wellness app that offers personalized fitness plans, nutrition guidance, and virtual workout classes.', 'ZenithFitnessAppBig', 'React Native; Firebase; Redux; REST API; MongoDB'),
-('A-AuraEcommerce', 'A-Aura Ecommerce', 'Web Design & Development', '3 months', 'A complete overhaul of a corporate website to enhance its brand identity and user experience.', 'A-AuraEcommerceBig', 'WordPress; PHP; HTML5; CSS3; JavaScript')
+('AAuraEcommerce', 'A-Aura Ecommerce', 'Web Design & Development', '3 months', 'A complete overhaul of a corporate website to enhance its brand identity and user experience.', 'AAuraEcommerceBig', 'WordPress; PHP; HTML5; CSS3; JavaScript')
+ON CONFLICT DO NOTHING;
+
+insert into testimonials (title, description, ava_img, name, prof) values
+('NexGen turned our business around!', 'Their digital marketing strategies helped us reach new customers and increase our revenue by 30% within just a few months. Highly recommended!', 'SarahImg', 'Sarah Thompson', 'CEO of BlueBloom'),
+('NexGen turned our business around!', 'Their digital marketing strategies helped us reach new customers and increase our revenue by 30% within just a few months. Highly recommended!', 'WadeImg', 'Wade Warren', 'Art Director'),
+('Working with NexGen was a pleasure.', 'Their web design team created a stunning website that perfectly captured our brand`s essence. The feedback from our customers has been overwhelmingly positive.', 'LisaImg', 'Lisa Williams', 'CEO Of HealthTech'),
+('NexGen`s web design team brought our vision to life.', 'Their responsive design ensures our website looks stunning on all devices, contributing to increased user engagement.', 'JenniferImg', 'Jennifer Lee', 'COO of Foodie Haven')
 ON CONFLICT DO NOTHING;

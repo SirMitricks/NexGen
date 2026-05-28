@@ -47,7 +47,7 @@ app.get('/api/ourServices', async (req, res) => {
     }
 });
 
-app.get('api/ourWorks', async (req, res) => {
+app.get('/api/ourWorks', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM ourworks ORDER BY ID');
         res.json(result.rows);
@@ -56,6 +56,15 @@ app.get('api/ourWorks', async (req, res) => {
         res.status(500).json({error: 'Ошибка сервера' })
     }
 });
+app.get('/api/testimonials'), async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM testimonials ORDER BY ID');
+        res.json(result.rows);
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({error: 'Ошибка сервера' })
+    }
+}
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)

@@ -6,6 +6,29 @@ html{
     font-family: "Roboto Flex", sans-serif;
     font-size: 10px;
 }
+.technologiesContainer{
+  width: 470px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  right: 30px;
+  .technologyTag{
+    flex: 0 0 auto;
+    width: fit-content;
+    max-width: 100%;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    color: #E6E6E6;
+    font-size: 1.6rem;
+    background-color: #1F1F1F;
+    border-radius: 100px;
+  }
+}
+
 main{
   width: 94.8%;
   .heroSection{
@@ -466,50 +489,149 @@ main{
       display: grid;
       grid-template-columns: 100%;
       grid-template-rows: 48.95% 48.95%;
-      //justify-content: center;
+      justify-content: center;
       align-content: space-between;
-      background-color: #676665;
       gap: 20px;
-      .ourWorksGrid{
-        width: 97.8%;
-        height: 91.42%;
-
-        background-color: #262626;
-        display: grid;
-        gap: 2rem;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 48.28% 19.31% 13.52%;
-        grid-template-areas:
+      .ourWorksPositionContainer{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #262626;
+        border-radius: 2rem;
+        .ourWorksGrid{
+          width: 97.8%;
+          height: 91.42%;
+          display: grid;
+          gap: 2rem;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 48.28% 19.31% 13.52%;
+          grid-template-areas:
         "block1 block2 block3"
         "block1 block2 block4"
         "block1 block2 block5";
-        align-content: space-between;
-      }
-      .ourWorksDescription{
-        grid-area: block1;
-        //width: 100%;
-        //height: 100%;
-        background-color: rebeccapurple;
-      }
-      .ourWorksImg{
-        grid-area: block2;
-        background-color: rebeccapurple;
+          align-content: space-between;
+          justify-content: center;
+        }
+        .ourWorksDescription{
+          grid-area: block1;
+          background-color: #1A1A1A;
+          border-radius: 1.4rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+          .ourWorksDescription_title{
+            width: 86.18%;
+            height: 15.49%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            img{
+              width: 66px;
+              height: 66px;
+            }
+            p{
+              font-size: 2.4rem;
+              color: #F9EFEC;
+              text-transform: uppercase;
+            }
+            a{
+              font-size: 2rem;
+              text-transform: uppercase;
+              color: #B3B3B2;
+              display: flex;
+              align-items: center;
 
-      }
-      .ourWorksTechnologiesUsed{
-        grid-area: block3;
-        background-color: rebeccapurple;
-
-      }
-      .ourWorksTeamMembers{
-        grid-area: block4;
-        background-color: rebeccapurple;
-
-      }
-      .ourWorksBookACall{
-        grid-area: block5;
-        background-color: rebeccapurple;
-
+              text-decoration: none;
+              img{
+                width: 52px;
+                height: 52px;
+                padding-right: 1rem;
+              }
+            }
+          }
+          .ourWorksDescription_category{
+            width:86.18%;
+            height: 24.88%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: start;
+            p{
+              font-size: 1.8rem;
+              color: #B3B3B2;
+              background-color: #1F1F1F;
+              padding: 10px;
+              border-radius: 4.5rem;
+              .dot{
+                color: #CE7D63 !important;
+              }
+              span{
+                color: #F9EFEC;
+              }
+            }
+          }
+          .ourWorksDescription_description{
+            width:86.18%;
+            color: #B3B3B2;
+            font-size: 1.8rem;
+            font-weight: lighter;
+          }
+        }
+        .ourWorksImg{
+          grid-area: block2;
+          width: 100%;
+          height: 100%;
+        }
+        .ourWorksTechnologiesUsed{
+          grid-area: block3;
+          background-color: #1A1A1A;
+          border-radius: 1.4rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          align-items: center;
+          p{
+            width: 100%;
+            height: auto;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: #F9EFEC;
+            padding-left: 60px;
+          }
+        }
+        .ourWorksTeamMembers{
+          grid-area: block4;
+          background-color: #1A1A1A;
+          border-radius: 1.4rem;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          p{
+            width: auto;
+            height: auto;
+            font-size: 1.8rem;
+            color: #F9EFEC;
+          }
+          img{
+            width: auto;
+            height: 50px;
+          }
+        }
+        .ourWorksBookACall{
+          grid-area: block5;
+          background-color: #CE7D63;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: black;
+          font-size: 1.8rem;
+          border-radius: 1.4rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
   }
