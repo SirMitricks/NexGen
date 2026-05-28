@@ -1,17 +1,30 @@
 CREATE TABLE IF NOT EXISTS reasons (
-    id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL,
-    learn_more_url VARCHAR(255) DEFAULT '/Home'
+    id serial PRIMARY KEY,
+    title varchar(255) NOT NULL,
+    description text NOT NULL,
+    learn_more_url varchar(255) DEFAULT '/Home'
 );
 
 create table if not exists ourServices (
 	id serial primary key,
-	img_url VARCHAR(255) DEFAULT '#', 
+	img_url varchar(255) DEFAULT '#',
 	title varchar(255) not null,
 	description text not null,
-	book_a_call VARCHAR(255) DEFAULT '/Home',
-	price VARCHAR(255) not null
+	book_a_call varchar(255) DEFAULT '/Home',
+	price varchar(255) not null
+);
+
+create table if not exists ourWorks (
+	id serial primary key,
+	img_title varchar(255) DEFAULT '#',
+	title varchar(255) not null,
+	details varchar(255) DEFAULT '/Home',
+	category varchar(255) not null,
+	time_taken varchar(255) not null,
+	description text not null,
+	img_url varchar(255) DEFAULT '#',
+	technologies varchar(255) not null,
+	book_a_call varchar(255) DEFAULT '/Home'
 );
 
 INSERT into reasons (title, description)  VALUES
@@ -28,3 +41,7 @@ insert into ourServices (img_url, title, description, price) values
 ('DigitalMarketing', 'Digital Marketing', 'In the digital age, marketing is a critical aspect of your business`s success. Our Digital Marketing service employs data-driven strategies to enhance your brand`s visibility', '$1,200')
 ON CONFLICT DO NOTHING;
 
+insert into ourWorks (img_title, title, category, time_taken, description, img_url, technologies) values
+('ZenithFitnessApp', 'Zenith Fitness App', 'Mobile App Development', '6 months', 'An all-in-one health and wellness app that offers personalized fitness plans, nutrition guidance, and virtual workout classes.', 'ZenithFitnessAppBig', 'React Native; Firebase; Redux; REST API; MongoDB'),
+('A-AuraEcommerce', 'A-Aura Ecommerce', 'Web Design & Development', '3 months', 'A complete overhaul of a corporate website to enhance its brand identity and user experience.', 'A-AuraEcommerceBig', 'WordPress; PHP; HTML5; CSS3; JavaScript')
+ON CONFLICT DO NOTHING;

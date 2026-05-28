@@ -11,6 +11,7 @@ import { Autoplay } from 'swiper/modules';
 export default function Home() {
     const [reasons, setReasons] = useState([]);
     const [ourServices, setOurServices] = useState([]);
+    const [ourWorks, setOurWorks] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:3000/api/reasons')
@@ -22,8 +23,14 @@ export default function Home() {
         fetch('http://localhost:3000/api/ourServices')
             .then(res => res.json())
             .then(data => setOurServices(data))
-            .catch(err => console.error('Ошибка загрузки reasons:', err))
-    }, [])
+            .catch(err => console.error('Ошибка загрузки ourServices:', err))
+    }, []);
+    useEffect(() => {
+        fetch('http://localhost:3000/api/ourWorks')
+            .then(res => res.json())
+            .then(data => setOurWorks(data))
+            .catch(err => console.error('Ошибка загрузки ourWorks:', err))
+    },[]);
     
   return (
     <>
@@ -184,21 +191,23 @@ export default function Home() {
                 <Link to="/Home"><div><img src={HomeImage.LearnMore} alt="" /></div>ALL Works</Link>
             </div>
             <div className={styles.ourWorksContainerGrid}>
-                <div className={styles.ourWorksGrid}>
-                    <div className={styles.ourWorksDescription}>
+                {ourWorks.map(item => (
+                    <div key={item.id} className={styles.ourWorksGrid} >
+                        <div className={styles.ourWorksDescription}>
 
-                    </div>
-                    <img className={styles.ourWorksImg} src="" alt="" />
-                    <div className={styles.ourWorksTechnologiesUsed}>
+                        </div>
+                        <img className={styles.ourWorksImg} src="" alt="" />
+                        <div className={styles.ourWorksTechnologiesUsed}>
 
-                    </div>
-                    <div className={styles.ourWorksTeamMembers}>
+                        </div>
+                        <div className={styles.ourWorksTeamMembers}>
 
-                    </div>
-                    <div className={styles.ourWorksBookACall}>
+                        </div>
+                        <div className={styles.ourWorksBookACall}>
 
+                        </div>
                     </div>
-                </div>
+                ))}
             </div>
         </section>    
       </main>
