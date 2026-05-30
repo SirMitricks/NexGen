@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer'
 import Home from './pages/home/Home';
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
           <Route index element={<Home/>}/>
           <Route path='/home' element={<Home/>}/>
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </>
   )
