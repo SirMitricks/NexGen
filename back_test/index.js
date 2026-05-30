@@ -36,7 +36,6 @@ app.get('/api/reasons', async (req, res) => {
         res.status(500).json({ error: 'Ошибка сервера' });
     }
 });
-
 app.get('/api/ourServices', async (req, res) => {
     try{
         const result = await pool.query('SELECT * FROM ourservices ORDER BY ID');
@@ -46,7 +45,6 @@ app.get('/api/ourServices', async (req, res) => {
         res.status(500).json({error: 'Ошибка сервера' })
     }
 });
-
 app.get('/api/ourWorks', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM ourworks ORDER BY ID');
@@ -65,7 +63,52 @@ app.get('/api/testimonials', async (req, res) => {
         res.status(500).json({error: 'Ошибка сервера' })
     }
 });
+app.get('/api/design', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM design ORDER BY id');
+        res.json(result.rows);
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ error: 'Ошибка сервера' });
+    }
+});
+app.get('/api/business', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM business ORDER BY id');
+        res.json(result.rows);
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ error: 'Ошибка сервера' });
+    }
+});
+app.get('/api/development', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM development ORDER BY id');
+        res.json(result.rows);
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ error: 'Ошибка сервера при загрузке Development' });
+    }
+});
+app.get('/api/testimonials', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM testimonials ORDER BY id');
+        res.json(result.rows);
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ error: 'Ошибка сервера при загрузке Development' });
+    }
+});
+app.get('/api/faq', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM faq ORDER BY id');
+        res.json(result.rows);
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ error: 'Ошибка сервера при загрузке Development' });
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
-})
+});

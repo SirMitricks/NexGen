@@ -35,7 +35,7 @@ create table if not exists testimonials (
     name varchar(255) not null,
     prof varchar(255) not null,
     learn_more_url varchar(255) DEFAULT '/Home'
-)
+);
 
 INSERT into reasons (title, description)  VALUES
 ('EXPERTISE IN CUTTING-EDGE TECHNOLOGIES', 'NexGen ensures your projects are powered by state-of-the-art technologies, guaranteeing innovation and future-proof solutions.'),
@@ -61,4 +61,84 @@ insert into testimonials (title, description, ava_img, name, prof) values
 ('NexGen turned our business around!', 'Their digital marketing strategies helped us reach new customers and increase our revenue by 30% within just a few months. Highly recommended!', 'WadeImg', 'Wade Warren', 'Art Director'),
 ('Working with NexGen was a pleasure.', 'Their web design team created a stunning website that perfectly captured our brand`s essence. The feedback from our customers has been overwhelmingly positive.', 'LisaImg', 'Lisa Williams', 'CEO Of HealthTech'),
 ('NexGen`s web design team brought our vision to life.', 'Their responsive design ensures our website looks stunning on all devices, contributing to increased user engagement.', 'JenniferImg', 'Jennifer Lee', 'COO of Foodie Haven')
+ON CONFLICT DO NOTHING;
+
+
+
+
+CREATE TABLE IF NOT EXISTS Design (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255),
+    category VARCHAR(100),
+    read_time VARCHAR(20),
+    author VARCHAR(100),
+    description TEXT,
+    published_date DATE,
+    has_read_full_button BOOLEAN DEFAULT TRUE
+);
+
+ALTER TABLE public.design ADD COLUMN IF NOT EXISTS image varchar NULL;
+
+CREATE TABLE IF NOT EXISTS Business (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255),
+    category VARCHAR(100),
+    read_time VARCHAR(20),
+    author VARCHAR(100),
+    description TEXT,
+    published_date DATE,
+    has_read_full_button BOOLEAN DEFAULT TRUE
+);
+
+ALTER TABLE public.business ADD COLUMN IF NOT EXISTS image varchar NULL;
+
+CREATE TABLE IF NOT EXISTS Development (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255),
+    category VARCHAR(100),
+    read_time VARCHAR(20),
+    author VARCHAR(100),
+    description TEXT,
+    published_date DATE,
+    has_read_full_button BOOLEAN DEFAULT TRUE
+);
+
+ALTER TABLE public.development ADD COLUMN IF NOT EXISTS image varchar NULL;
+
+CREATE TABLE IF NOT EXISTS faq (
+    id SERIAL PRIMARY KEY,
+    question TEXT NOT NULL,
+    answer TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+INSERT INTO Design (title, category, read_time, author, description, published_date) VALUES
+('WEB DESIGN TRENDS SHAPING 2024', 'Design', '6 Mins', 'Laura Turner', 'Stay ahead of the design curve with insights into the latest web design trends. From immersive user experiences to bold color choices, explore the design elements that will dominate the digital landscape in 2023 and beyond.', '2023-02-07'),
+('OPTIMIZING MOBILE USER EXPERIENCE FOR HIGHER CONVERSIONS', NULL, NULL, NULL, 'Mobile devices dominate digital interactions, making mobile user experience crucial for conversion rates. Explore mobile design best practices...', NULL),
+('MASTERING THE ART OF MINIMALISTIC DESIGN', NULL, NULL, NULL, 'Simplicity and elegance take center stage in minimalistic design. Learn the principles of minimalism, how to effectively communicate with fewer elements...', NULL),
+('THE PSYCHOLOGY OF VISUAL DESIGN IN BRANDING', NULL, NULL, NULL, 'Uncover the impact of visual elements in branding and how they influence customer perceptions and emotions. Explore color psychology, typography choices...', NULL)
+ON CONFLICT DO NOTHING;
+
+INSERT INTO Business (title, category, read_time, author, description, published_date) VALUES
+('BUSINESS STRATEGIES FOR 2024', 'Business', '8 Mins', 'Michael Chen', 'Discover the most effective business strategies that will drive growth and profitability in 2024. From digital transformation to agile methodologies, learn how leading companies adapt to changing market conditions.', '2024-01-15'),
+('SCALING YOUR STARTUP SUCCESSFULLY', NULL, NULL, NULL, 'Scaling a startup requires careful planning and execution. Explore proven frameworks for sustainable growth, team expansion, and maintaining company culture during rapid scaling phases.', NULL),
+('FINANCIAL PLANNING FOR SMALL BUSINESSES', NULL, NULL, NULL, 'Master the fundamentals of business finance, from cash flow management to investment strategies. Learn how to create realistic budgets and secure funding for your small business.', NULL),
+('LEADERSHIP IN MODERN ORGANIZATIONS', NULL, NULL, NULL, 'Effective leadership drives business success. Understand the key qualities of modern leaders, including emotional intelligence, adaptability, and the ability to inspire diverse teams.', NULL)
+ON CONFLICT DO NOTHING;
+
+INSERT INTO Development (title, category, read_time, author, description, published_date) VALUES
+('AI TRENDS IN SOFTWARE DEVELOPMENT', 'Development', '10 Mins', 'Sarah Johnson', 'Artificial intelligence is revolutionizing software development. Explore how AI-powered tools, code assistants, and machine learning models are transforming the way developers build and deploy applications.', '2024-02-20'),
+('MODERN DEVOPS PRACTICES', NULL, NULL, NULL, 'Learn the latest DevOps methodologies, including CI/CD pipelines, infrastructure as code, and automated monitoring. Discover how to streamline your development workflow and improve deployment frequency.', NULL),
+('FRONTEND FRAMEWORKS COMPARISON 2024', NULL, NULL, NULL, 'A comprehensive comparison of leading frontend frameworks: React, Vue, Angular, and Svelte. Analyze performance metrics, learning curves, community support, and real-world use cases.', NULL),
+('DATABASE OPTIMIZATION TECHNIQUES', NULL, NULL, NULL, 'Master database performance tuning with indexing strategies, query optimization, and proper normalization. Learn how to handle large datasets and improve application response times.', NULL)
+ON CONFLICT DO NOTHING;
+
+INSERT INTO faq (question, answer) VALUES
+('How long does it take to complete a web development project?', 'The timeline varies depending on the project complexity, features, and requirements. Most standard web development projects take between 2 to 8 weeks. Larger enterprise-level systems may require several months to ensure performance, scalability, and quality.'),
+('Can you handle large-scale mobile app development projects?', 'Yes. Our team specializes in scalable mobile applications for startups and enterprise companies. We build high-performance applications using modern technologies while maintaining clean architecture and optimized user experiences.'),
+('Can you integrate third-party APIs into our mobile app?', 'Absolutely. We can integrate payment systems, CRM platforms, analytics services, authentication providers, cloud solutions, AI APIs, and many other third-party services depending on your project requirements.'),
+('How do you ensure cross-platform compatibility for mobile apps?', 'We use modern frameworks and responsive development practices to ensure your application performs consistently across iOS, Android, tablets, and different screen sizes while maintaining a smooth user experience.'),
+('What is your approach to user experience (UX) design?', 'Our UX design process focuses on user behavior, accessibility, minimalistic interfaces, intuitive navigation, and data-driven design decisions. We prioritize usability while creating visually premium digital products.'),
+('Do you provide post-launch support and maintenance?', 'Yes. We offer continuous technical support, security updates, performance optimization, bug fixing, feature expansion, and long-term maintenance services after the project launch.'),
+('Can you redesign an existing website or application?', 'Of course. We can modernize outdated interfaces, improve performance, optimize mobile responsiveness, and completely redesign your product while preserving existing business functionality.')
 ON CONFLICT DO NOTHING;

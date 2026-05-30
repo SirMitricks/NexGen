@@ -8,45 +8,9 @@ import 'swiper/css';
 import FAQ from '../FAQ/FAQ';
 
 const FooterSection = () => {
-    const [testimonials, setTestimonials] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:3000/api/testimonials')
-            .then(res => res.json())
-            .then(data => setTestimonials(data))
-            .catch(err => console.error('Ошибка загрузки reason',err));
-    }, []);
     return (
         <>
-            <section className={styles.testimonials}>
-                <div className={styles.topSection}>
-                    <h2 className={styles.title}>TESTIMONIALS</h2>
-                    <button className={styles.allButton}>
-                        <span className={styles.arrowCircle}>↗</span>
-                        <span className={styles.buttonText}></span>
-                    </button>
-                </div>
-                <div className={styles.cardsGrid}>
-                    {testimonials.map((item) => (
-                        <div key={item.id} className={styles.card}>
-                            <div className={styles.cardContent}>
-                                <h3 className={styles.cardTitle}>{item.title}</h3>
-                                <p className={styles.cardDescription}>{item.description}</p>
-                            </div>
-                            <div className={styles.cardFooter}>
-                                <div className={styles.userInfo}>
-                                    <img src={item.avatar} alt="" className={styles.avatar}/>
-                                    <div>
-                                        <p className={styles.userName}>{item.name}</p>
-                                        <p className={styles.userRole}>{item.position}</p>
-                                    </div>
-                                </div>
-                                <button className={styles.cardArrow}>↗</button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
+            
             <FAQ/>
             <footer className={styles.footerSection}>
                 <div className={styles.ctaBlock}>

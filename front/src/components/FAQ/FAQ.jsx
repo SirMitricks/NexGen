@@ -4,6 +4,7 @@ import styles from './FAQ.module.scss';
 const FAQ = () => {
   const [faqData, setFaqData] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [testimonials, setTestimonials] = useState([]);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -34,7 +35,41 @@ const FAQ = () => {
     alert('Message Sent!');
   };
 
+  useEffect(() => {
+    fetch('http://localhost:3000/api/testimonials')
+      .then(res => res.json())
+      .then(data => setTestimonials(data))
+      .catch(err => console.error('Ошибка загрузки reason',err));
+  }, []);
+
   return (
+    <>
+    <section className={styles.testimonials}>
+      <div className={styles.topSection}>
+        <h2 className={styles.title}>TESTIMONIALS</h2>
+        <Link className={styles.allButton} to="/Home"><div><img src={HomeImage.LearnMore} alt="" /></div>ALL Works</Link>
+      </div>
+      <div className={styles.cardsGrid}>
+        {testimonials.map((item) => (
+          <div key={item.id} className={styles.card}>
+            <div className={styles.cardContent}>
+              <h3 className={styles.cardTitle}>{item.title}</h3>
+              <p className={styles.cardDescription}>{item.description}</p>
+            </div>
+            <div className={styles.cardFooter}>
+              <div className={styles.userInfo}>
+                <img src={item.avatar} alt="" className={styles.avatar}/>
+                <div>
+                  <p className={styles.userName}>{item.name}</p>
+                  <p className={styles.userRole}>{item.position}</p>
+                </div>
+              </div>
+              <button className={styles.cardArrow}>↗</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
     <section className={styles.faqSection}>
       {/* HEADER */}
       <div className={styles.topHeader}>
@@ -120,6 +155,7 @@ const FAQ = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

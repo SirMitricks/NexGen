@@ -12,7 +12,6 @@ export default function Home() {
     const [reasons, setReasons] = useState([]);
     const [ourServices, setOurServices] = useState([]);
     const [ourWorks, setOurWorks] = useState([]);
-    const [testimonials, setTestimonials] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:3000/api/reasons')
